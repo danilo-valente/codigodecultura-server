@@ -18,7 +18,7 @@ function randomValueHex (len) {
 module.exports = function (bCode, stdin, res) {
     const fs   = require('fs');
     const comp = require('./compiler.js');
-    const code = require('./birlToC.js')(bCode);
+    const code = require('./ccl2c.js')(bCode);
 
     var rName = randomValueHex(15).toString();
   

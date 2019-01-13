@@ -1,11 +1,11 @@
 const app     = require('express')();
 const cors    = require('cors');
 const fs      = require('fs');
-const birl    = require('./code_exec.js');
+const ccl     = require('./code_exec.js');
 const verif   = require('./code_verification.js');
 
 var corsOptions = {
-    origin: 'https://birl-language.github.io'
+    origin: 'https://danilo-valente.github.io'
 };
 
 // Permitindo CORS
@@ -32,12 +32,12 @@ app.post('/compile', cors (corsOptions), function (req, res) {
         var json = JSON.parse(body);
         if (json.code == null || verif(json.code)) {
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({    error: "ERRO DE COMPILAÇÃO, CUMPADI!!\n",
+            res.end(JSON.stringify({    error: "ERRO DE COMPILAÇÃO, OTÁRIO!!\n",
                                         stdout: null,
                                     }));
         }
         else
-            birl(json.code, json.stdin, res);
+            ccl (json.code, json.stdin, res);
     });
 });
 
